@@ -48,7 +48,7 @@ public class FileData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FileData fileData = (FileData) o;
-        return byteSize == fileData.byteSize && Objects.equals(fileName, fileData.fileName) && Objects.equals(filePath, fileData.filePath);
+        return Objects.equals(fileName, fileData.fileName) && Objects.equals(filePath, fileData.filePath);
     }
 
     @Override

@@ -3,6 +3,7 @@ public class Main {
         FileNavigator fileNavigator = new FileNavigator() {
             {
                 add(new FileData("report.docx", "C:/Users/JohnDoe/Documents/Work/Project1"), "C:/Users/JohnDoe/Documents/Work/Project1");
+                add(new FileData("report.docx", 200000000, "C:/Users/JohnDoe/Documents/Work/Project1"), "C:/Users/JohnDoe/Documents/Work/Project1");
                 add(new FileData("budget.xlsx", "C:/Users/JohnDoe/Documents/Work/Project2"), "C:/Users/JohnDoe/Documents/Work/Project1");
                 add(new FileData("invoice.pdf", "C:/Users/JohnDoe/Documents/Work/Project1"), "C:/Users/JohnDoe/Documents/Work/Project2");
                 add(new FileData("data.csv", "C:/Users/JohnDoe/Documents/Work/Project1"), "C:/Users/JohnDoe/Documents/Work/Project1");

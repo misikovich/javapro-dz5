@@ -4,7 +4,7 @@ public class FileNavigator {
     /**
      * k = path, v = list of files
      */
-    private final HashMap<String, ArrayList<FileData>> filesOnPath;
+    private final HashMap<String, HashSet<FileData>> filesOnPath;
 
     {
         this.filesOnPath = new HashMap<>();
@@ -28,15 +28,15 @@ public class FileNavigator {
             filesOnPath.get(path).add(file);
             return;
         }
-        filesOnPath.put(path, new ArrayList<>() {{add(file);}});
+        filesOnPath.put(path, new HashSet<>() {{add(file);}});
     }
 
-    public ArrayList<FileData> find(String path) {
+    public HashSet<FileData> find(String path) {
         if (Objects.isNull(path)) {
-            return new ArrayList<>();
+            return new HashSet<>();
         }
         if (!filesOnPath.containsKey(path)) {
-            return new ArrayList<>();
+            return new HashSet<>();
         }
 
         return filesOnPath.get(path);
@@ -47,7 +47,7 @@ public class FileNavigator {
 
         ArrayList<FileData> filteredFiles = new ArrayList<>();
 
-        for (ArrayList<FileData> fileDataArrayList : filesOnPath.values()) {
+        for (HashSet<FileData> fileDataArrayList : filesOnPath.values()) {
             for (FileData fileData : fileDataArrayList) {
                 if (fileData.getByteSize() <= maxSize){
                     filteredFiles.add(fileData);
@@ -66,7 +66,7 @@ public class FileNavigator {
 
         ArrayList<FileData> sort = new ArrayList<>();
 
-        for (ArrayList<FileData> fileDataArrayList : filesOnPath.values()) {
+        for (HashSet<FileData> fileDataArrayList : filesOnPath.values()) {
             sort.addAll(fileDataArrayList);
         }
         if (sort.size() < 2) {
